@@ -1,6 +1,5 @@
 
 /*
-	Killed handler for _units
 	By Ghostrider-GRG-
 
 	--------------------------

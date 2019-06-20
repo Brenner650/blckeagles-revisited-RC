@@ -3,7 +3,16 @@
 	algorhytm one: pure chance base on inverse of distance. More efficient.
 	algorhythm two: based on canSee. More detailed.
 */
+/*
+	By Ghostrider [GRG]
+	Copyright 2016
+	--------------------------
+	License
+	--------------------------
+	All the code and information provided here is provided under an Attribution Non-Commercial ShareAlike 4.0 Commons License.
 
+	http://creativecommons.org/licenses/by-nc-sa/4.0/
+*/
 params["_vehicle","_searchRadius","_detectionOdds"];
 private["_player","_detectionOdds","_nearbyPlayers","_knowsAbout","_cansee","_knowledgeGained"];
 _nearbyPlayers = [position _vehicle, _vehicle getVariable["blck_vehicleSearchRange",500]] call blck_fnc_nearestPlayers;

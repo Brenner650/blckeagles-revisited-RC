@@ -1,11 +1,6 @@
 /*
-Dynamic Loot Crate Spaw System for Exile Mod for Arma 3
-by
-Ghostrider [GRG]
-for ghostridergaming
-4-6-16
-
-Spawn a crate on land or in the air
+	By Ghostrider-GRG-
+	Copyright 2016
 	--------------------------
 	License
 	--------------------------

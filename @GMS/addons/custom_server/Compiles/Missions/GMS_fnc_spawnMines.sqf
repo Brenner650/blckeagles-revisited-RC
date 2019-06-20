@@ -2,7 +2,6 @@
 /*
 	By Ghostrider [GRG]
 	Copyright 2016
-	Last updated 8-14-16
 	
 	--------------------------
 	License

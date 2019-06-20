@@ -1,6 +1,6 @@
 /*
 	by Ghostrider
-	1-22-17
+
 	Removes an AI launcher and ammo
 	--------------------------
 	License

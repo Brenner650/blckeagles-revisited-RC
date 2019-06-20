@@ -9,18 +9,18 @@
 	http://creativecommons.org/licenses/by-nc-sa/4.0/	
 */
 #include "\q\addons\custom_server\Configs\blck_defines.hpp";
-private["_mode","_sm_groups","_pos","_element"];
+private["_mode","_sm_groups"];
 //diag_log format["_fnc_sm_monitorGarrisonASL: blck_fnc_spawnGarrisonInsideBuilding_ATL = %1",blck_sm_garrisonBuildings_ASL];
 if (blck_sm_garrisonBuildings_ASL isEqualTo []) exitWith {};
-_sm_groups = +blck_sm_garrisonBuildings_ASL;
+for "_i" from 0 to (count blck_sm_garrisonBuildings_ASL) do
  {
-	 //diag_log format["_fnc_sm_monitorGarrisonASL: _x = %1",_x];
-	_x params["_groupParameters","_group","_groupSpawned","_timesSpawned","_respawnAt"];
+	if (_i >= (count blck_sm_garrisonBuildings_ASL)) exitWith {};
+	private _element = blck_sm_garrisonBuildings_ASL deleteAt 0;
+	_element params["_groupParameters","_group","_groupSpawned","_timesSpawned","_respawnAt"];
 	//  ["_building","_aiDifficultyLevel","_staticsATL","_unitsATL"];
 	_groupParameters params['_building','_aiDifficulty','_staticsASL','_unitsASL','_respawnTime','_maxRespawns'];	
 	//diag_log format["_fnc_sm_monitorGarrisonASL: _group = %1 | _timesSpawned = %2 | _respawnTime = %3 | _respawnAt = %4 | _groupSpawned = %5",_group,_timesSpawned,_respawnTime,_respawnAt,_groupSpawned];
-	private _element = +_x;//
-	_pos = position _building;	
+	private _pos = position _building;	
 	if (!(isNull _group) && {alive _x} count (units _group) == 0) then
 	{
 		deleteGroup _group;
@@ -39,10 +39,10 @@ _sm_groups = +blck_sm_garrisonBuildings_ASL;
 		};
 		switch (_mode) do
 		{
-			case 0: {blck_sm_garrisonBuildings_ASL deleteAt (blck_sm_garrisonBuildings_ASL find _x)};
+			case 0: {};
 			case 1: {
 						
-						if (true /*[_pos,staticPatrolTriggerRange] call blck_fnc_playerInRange*/) then
+						if ([_pos,staticPatrolTriggerRange] call blck_fnc_playerInRange) then
 						{
 							// ["_building","_aiDifficultyLevel","_staticsATL","_unitsATL"]
 							//diag_log format
@@ -54,16 +54,17 @@ _sm_groups = +blck_sm_garrisonBuildings_ASL;
 							_element set[groupSpawned,1];
 							_element set[timesSpawned,_timesSpawned];
 							_element set[respawnAt,_respawnAt];	
-							blck_sm_garrisonBuildings_ASL set[blck_sm_garrisonBuildings_ASL find _x,_element];
+							//blck_sm_garrisonBuildings_ASL set[blck_sm_garrisonBuildings_ASL find _x,_element];
 						};
+						blck_sm_garrisonBuildings_ASL pushBack _element;
 					};
 			case 2: {
 						_groupSpawned = 0;
 						_respawnAt = diag_tickTime + _respawnTime;
 						_element set[respawnAt,_respawnAt];	
 						_element set[groupSpawned,_groupSpawned];
-						blck_sm_garrisonBuildings_ASL set[blck_sm_garrisonBuildings_ASL find _x,_element];
-				
+						//blck_sm_garrisonBuildings_ASL set[blck_sm_garrisonBuildings_ASL find _x,_element];
+						blck_sm_garrisonBuildings_ASL pushBack _element;				
 					};
 			default {};
 		};
@@ -73,20 +74,24 @@ _sm_groups = +blck_sm_garrisonBuildings_ASL;
 		if ([_pos,staticPatrolTriggerRange] call blck_fnc_playerInRange) then
 		{
 			_group setVariable["playerNearAt",diag_tickTime];
-			
+			blck_sm_garrisonBuildings_ASL pushBack _element;			
 		} else {
 			if (diag_tickTime > (_group getVariable["playerNearAt",diag_tickTime]) + blck_sm_groupDespawnTime) then
 			{
 
-				_groupParameters set [2, {alive _x} count (units _group)];
+				//_groupParameters set [2, {alive _x} count (units _group)];
 				private _veh = vehicle (leader _group);
+				{deleteVehicle _x} forEach (units _group);
+				deleteGroup _group;					
 				[_veh] call blck_fnc_destroyVehicleAndCrew;
 				_element set[groupParameters,_groupParameters];
 				_element set[patrolGroup ,grpNull];
 				_element set[timesSpawned,(_timesSpawned - 1)];
 				_element set[groupSpawned,0];
-				blck_sm_garrisonBuildings_ASL set[(blck_sm_garrisonBuildings_ASL find _x), _element];
+				//blck_sm_garrisonBuildings_ASL set[(blck_sm_garrisonBuildings_ASL find _x), _element];
+				
 			};
+			blck_sm_garrisonBuildings_ASL pushBack _element;			
 		};
 	};
-}forEach _sm_groups;
+};

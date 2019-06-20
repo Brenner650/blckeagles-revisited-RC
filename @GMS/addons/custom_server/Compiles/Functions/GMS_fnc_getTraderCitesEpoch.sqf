@@ -1,6 +1,7 @@
 // pull trader cities from config
 /*
 	By Ghostrider [GRG]
+	Copyright 2016	
 	--------------------------
 	License
 	--------------------------

@@ -1,5 +1,5 @@
 // Protect Vehicles from being cleaned up by the server
-// Last modified 2/26/16 by Ghostrider [GRG]
+
 /*
 	--------------------------
 	License

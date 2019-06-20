@@ -110,21 +110,23 @@ _aiGroupParameters = [
 _aiScubaGroupParameters = [
 	// [ [px, py, pz] /* position*/, "difficulty", 4 /*Number to Spawn*/, 150 /*radius of patrol*/, seconds to wait after all units killed before respawning the group (set to 0 to disable respawns)]
 	//[[22584.9,15304.8,-4.27578],"red",4, 75,0],
-	[[22613.5,15269.1,-4.28332],"red",3, 75,900],
+	//[[22613.5,15269.1,-4.28332],"red",3, 75,900],
 	[[22549,15288.9,0],"red",3, 75,900]
 ];
 _noVehiclePatrols = blck_SpawnVeh_Red; // Modified as needed; can be a numberic value (e.g. 3) or range presented as [2,4]; 
 										//  Note that this value is ignored if you define vehicle patrols in the array below.
 _vehiclePatrolParameters = [
 	//["Vehicle Class Name",Position [22570.1,15235.3,-4.49949],AI Difficulty "red",4 (Units to spawn into vehicle), 75 (radius of patrol area),60 (seconds to wait after all units dead before respawning)],
-	["B_T_Boat_Armed_01_minigun_F",[22578.6,15273.3,-0.0354593],"red",3, 75,0]	
+	//["B_T_Boat_Armed_01_minigun_F",[22577.6,15275.3,-0.0354593],"red",3, 75,0],
+	//["B_T_Boat_Armed_01_minigun_F",[22578.6,15273.3,-0.0354593],"red",3, 75,0]	
 ]; 							//[ ["vehicleClassName",[px,py,pz] /* center of patrol area */, difficulty /* blue, red etc*/, patrol radius] ]
 							// When this array is empty, vehicle patrols will be scattered randomely around the mission.
 							// Allows you to define the location of the center of the patrol, vehicle type spawned, radius to patrol, and AI difficulty (blue, red, green etc).
 
 _submarinePatrolParameters = [
 	////["Vehicle Class Name",Position [22570.1,15235.3,-4.49949],AI Difficulty "red",4 (Units to spawn into vehicle), 75 (radius of patrol area),60 (seconds to wait after all units dead before respawning)],
-	["B_SDV_01_F",[22609.9,15299.8,-1],"red",3, 75,0]
+	["B_SDV_01_F",[22607.9,15299.8,-1],"red",3, 75,0],
+	["B_SDV_01_F",[22609.9,15297.8,-1],"red",3, 75,0]	
 ];
 
 _aircraftTypes = blck_patrolHelisRed;  //  You can use one of the pre-defined lists in blck_configs or your own custom array.

@@ -34,9 +34,11 @@ V 6.90  Build 175
 
 5. Issues with AIHit events fixed; AI now deploy smoke and heal.
 
-6. Removed some unnecessary logging.
+6. Added constraints on aircraft patrols to keep them in the mission area.
 
-7. Other minor coding fixes and optimizations.
+7. Removed some unnecessary logging.
+
+8. Other minor coding fixes and optimizations.
 
 6.88 Build 167
 This update consists primarily of a set of bug fixes and code tweaks.

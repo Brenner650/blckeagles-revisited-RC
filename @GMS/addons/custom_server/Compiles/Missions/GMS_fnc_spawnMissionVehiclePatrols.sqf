@@ -1,7 +1,6 @@
 /*
 	blck_fnc_spawnMissionVehiclePatrols
 	by Ghostrider [GRG]
-	3/17/17
 	returns [] if no groups could be created
 	returns [_AI_Vehicles,_missionAI] otherwise;
 	

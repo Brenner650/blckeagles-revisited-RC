@@ -2,7 +2,7 @@
 	Spawn a vehicle and protect it against cleanup by Epoch
 	Returns the object (vehicle) created.
 	By Ghostrider [GRG]
-	Last modified 1-27-17
+
 	--------------------------
 	License
 	--------------------------

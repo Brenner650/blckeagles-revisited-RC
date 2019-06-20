@@ -51,5 +51,5 @@ if (_killer == (driver (vehicle _killer))) then //  If the killer is also the dr
 		};
 	};
 };
-diag_log format["_fnc_testForIllegalKills: _legal = %1",_legal];
+//diag_log format["_fnc_testForIllegalKills: _legal = %1",_legal];
 _legal

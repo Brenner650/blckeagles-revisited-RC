@@ -1,8 +1,8 @@
 /*
 	Adds the basic list of parameters that define a mission such as the marker name, mission list, mission path, AI difficulty, and timer settings, to the arrays that the main thread inspects.
 	
-	by Ghostrider [GRG]
-	Last modified 1-21-17
+	By Ghostrider-GRG-
+	Copyright 2016
 	
 	--------------------------
 	License

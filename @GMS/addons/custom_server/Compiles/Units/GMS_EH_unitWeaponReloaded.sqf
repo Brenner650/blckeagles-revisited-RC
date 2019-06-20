@@ -3,7 +3,6 @@
     Handle case where a unit reloads weapon.
     This was used in place of fired event handlers to add realism and deal with issues with the arma engine post v1.64
     By Ghostrider [GRG]
-    Last modified 4-11-17
 
 	https://community.bistudio.com/wiki/Arma_3:_Event_Handlers/Reloaded
 	

@@ -13,6 +13,8 @@
 
 	http://creativecommons.org/licenses/by-nc-sa/4.0/
 */
+// TODO: Add pushBack for groups spawned at static missions.
+
 #include "\q\addons\custom_server\Configs\blck_defines.hpp";
 
 _fn_waypointComplete = {

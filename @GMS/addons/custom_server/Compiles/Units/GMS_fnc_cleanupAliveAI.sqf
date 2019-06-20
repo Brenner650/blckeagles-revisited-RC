@@ -1,8 +1,6 @@
 /*
   Delete alive AI.
-  Now called from the main thread which tracks the time elapsed so that we no longer spawn a wait timer for each completed mission.
   by Ghostrider
-  Last updated 4/11/17
 	
 	--------------------------
 	License

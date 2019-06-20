@@ -2,7 +2,7 @@
 	Author: Ghostrider [GRG]
 	Inspiration: blckeagls / A3EAI / VEMF / IgiLoad / SDROP
 	License: Attribution-NonCommercial-ShareAlike 4.0 International
-	3/17/17
+
 	--------------------------
 	License
 	--------------------------
@@ -10,11 +10,6 @@
 
 	http://creativecommons.org/licenses/by-nc-sa/4.0/	
 	--------------------------
-	License
-	--------------------------
-	All the code and information provided here is provided under an Attribution Non-Commercial ShareAlike 4.0 Commons License.
-
-	http://creativecommons.org/licenses/by-nc-sa/4.0/
 */
 #include "\q\addons\custom_server\Configs\blck_defines.hpp";
 

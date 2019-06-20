@@ -1,9 +1,9 @@
 // Sets the WP type for WP for the specified group and updates other atributes accordingly.
+// TODO: Not uses? how to handle
 /*
 	for ghostridergaming
 	By Ghostrider [GRG]
 	Copyright 2016
-	Last modified 4/29/17
 	
 	--------------------------
 	License

@@ -10,18 +10,19 @@
 */
 
 #include "\q\addons\custom_server\Configs\blck_defines.hpp";
-private["_mode","_sm_groups"];
-_sm_groups = +blck_sm_surfaceShips;
+
 //diag_log format["_fnc_monitorShips: time %2 |  blck_sm_surfaceShips %1",blck_sm_surfaceShips,diag_tickTime];
+for "_i" from 0 to (count blck_sm_surfaceShips) do
 {
-	_x params["_groupParameters","_group","_groupSpawned","_timesSpawned","_respawnAt","_maxRespawns"];
-	//diag_log format["_fnc_monitorShips: _x %1",_x];
+	if (_i >= (count blck_sm_surfaceShips)) exitWith {};
+	private _element = blck_sm_surfaceShips deleteAt 0;
+	_element params["_groupParameters","_group","_groupSpawned","_timesSpawned","_respawnAt","_maxRespawns"];
+	//diag_log format["_fnc_monitorShips: _element %1",_element];
 	//diag_log format["_fnc_monitorShips: _groupParameters = %1",_groupParameters];
 	//diag_log format["_fnc_monitorShips (9): _group %1 | _groupSpawned %2 | _timesSpawned %3 | _respawnAt %4",_group,_groupSpawned,_timesSpawned,_respawnAt];
-	//_groupParameters params["_pos","_difficulty","_units","_patrolRadius","_respawnTime"];
+	_groupParameters params["_pos","_difficulty","_units","_patrolRadius","_respawnTime"];
 	_groupParameters params["_vehicleType","_pos","_difficulty","_patrolRadius","_respawnTime","_maxRespawns"];	
 	//diag_log format["_fnc_monitorVehicles: _vehicleType | %1 | _pos = %2 | _difficulty = %3 | _patrolRadius = %4 | _respawnTime = %5",_vehicleType,_pos,_difficulty,_patrolRadius,_respawnTime];
-	private _element = +_x;//
 	
 	if (!(isNull _group) && {alive _x} count (units _group) == 0) then
 	{
@@ -41,7 +42,7 @@ _sm_groups = +blck_sm_surfaceShips;
 		};
 		switch (_mode) do
 		{
-			case 0: {blck_sm_surfaceShips deleteAt (blck_sm_surfaceShips find _x)};
+			case 0: {};
 			case 1: {
 						
 						if ([_pos,staticPatrolTriggerRange] call blck_fnc_playerInRange) then
@@ -49,22 +50,18 @@ _sm_groups = +blck_sm_surfaceShips;
 							_return = [_pos,1,_difficulty,[_groupParameters],false] call blck_fnc_spawnMissionVehiclePatrols;
 							//diag_log format["_fnc_monitorShips: _return = %1",_return];
 							_group = group ((_return select 1) select 0);							
-							_timesSpawned = _timesSpawned + 1;
-							_groupSpawned = 1;
-							_respawnAt = 0;
 							_element set[patrolGroup,_group];
 							_element set[groupSpawned,1];
-							_element set[timesSpawned,_timesSpawned];
-							_element set[respawnAt,_respawnAt];	
-							blck_sm_surfaceShips set[blck_sm_surfaceShips find _x,_element];
+							_element set[timesSpawned,_timesSpawned + 1];
+							_element set[respawnAt,0];	
+							//blck_sm_surfaceShips pushBack _element;
 						};
+						blck_sm_surfaceShips pushBack _element;						
 					};
 			case 2: {
-						_groupSpawned = 0;
-						_respawnAt = diag_tickTime + _respawnTime;
-						_element set[respawnAt,_respawnAt];	
-						_element set[groupSpawned,_groupSpawned];
-						blck_sm_surfaceShips set[blck_sm_surfaceShips find _x,_element];
+						_element set[respawnAt,diag_tickTime + _respawnTime];	
+						_element set[groupSpawned,0];
+						blck_sm_surfaceShips pushBack _element;
 						//diag_log format["_fnc_monitorShips: update respawn time to %1",_respawnAt];						
 					};
 			default {};
@@ -76,19 +73,22 @@ _sm_groups = +blck_sm_surfaceShips;
 		{
 			_group setVariable["playerNearAt",diag_tickTime];
 			//diag_log format["_fnc_monitorShips: playerNearAt updated to %1",_group getVariable["playerNearAt",-1]];
+			blck_sm_surfaceShips pushBack _element;			
 		} else {
 			if (diag_tickTime > (_group getVariable["playerNearAt",diag_tickTime]) + blck_sm_groupDespawnTime) then
 			{
 				//diag_log format["_fnc_monitorShips: despanwing patrol for _element %1",_element];
-				_groupParameters set [2, {alive _x} count (units _group)];
+				//_groupParameters set [2, {alive _x} count (units _group)];
 				private _veh = vehicle (leader _group);
+				{deleteVehicle _x} forEach (units _group);
+				deleteGroup _group;				
 				[_veh] call blck_fnc_destroyVehicleAndCrew;
 				_element set[groupParameters,_groupParameters];
 				_element set[patrolGroup ,grpNull];
 				_element set[timesSpawned,(_timesSpawned - 1)];
 				_element set[groupSpawned,0];
-				blck_sm_surfaceShips set[(blck_sm_surfaceShips find _x), _element];
 			};
+			blck_sm_surfaceShips pushBack _element;			
 		};
 	};
-}forEach _sm_groups;
+};

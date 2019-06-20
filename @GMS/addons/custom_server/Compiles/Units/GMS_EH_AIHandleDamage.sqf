@@ -2,7 +2,6 @@
 
     Deals with instances in which a unit is damaged (not in use).
     By Ghostrider [GRG]
-    Last modified 4-11-17
 
     unit: Object - Object the event handler is assigned to.
     selectionName: String - Name of the selection where the unit was damaged. "" for over-all structural damage, "?" for unknown selections.

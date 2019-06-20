@@ -1,6 +1,6 @@
 /*
 	by Ghostrider
-	8-13-16
+
 	Remove NVG from AI
 	--------------------------
 	License

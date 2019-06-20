@@ -15,8 +15,8 @@
 		case 1: [["item1",...,"itemN"],6]; The script will randomly select from the array of item names 6 times and call the loot loader each time.
 		case 2: [["item1",...,"itemN"],6, 9]; As above except that an item will be selected a minimum of 6 and maximum of 9 times.
 	
-	by Ghostrider [GRG]
-	11/14/16
+	By Ghostrider-GRG-
+	Copyright 2016
 	
 	--------------------------
 	License
@@ -25,6 +25,8 @@
 
 	http://creativecommons.org/licenses/by-nc-sa/4.0/	
 */
+// TODO: Check file name which seems to have an extra _ in it.
+
 #include "\q\addons\custom_server\Configs\blck_defines.hpp";
 
 

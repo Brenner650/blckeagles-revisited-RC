@@ -2,7 +2,6 @@
 	Author: Ghostrider [GRG]
 	Inspiration: blckeagls / A3EAI / VEMF / IgiLoad / SDROP
 	License: Attribution-NonCommercial-ShareAlike 4.0 International
-	3/17/17
 	
 	This is basically a container that determines whether a paragroop group should be created and if so creates a group and passes it off to the routine that spawns the paratroops.
 	

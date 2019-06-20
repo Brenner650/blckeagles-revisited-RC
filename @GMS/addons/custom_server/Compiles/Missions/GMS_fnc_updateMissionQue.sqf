@@ -2,7 +2,6 @@
 	Update the parameters for a mission in the list of missions running at that time.
 	Call with the name of the marker associated with the mission and either "Active" or "Completed"
 	by Ghostrider [GRG]
-	Last modified 1-22-17
 	
 	--------------------------
 	License

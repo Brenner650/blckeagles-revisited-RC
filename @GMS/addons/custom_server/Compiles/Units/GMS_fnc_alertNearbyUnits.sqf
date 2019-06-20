@@ -1,7 +1,6 @@
 /*
 	_fnc_alertNearbyUnits
 	by Ghostrider
-	9-20-15
 	Allerts all units within a certain radius of the location of a killer.
 	**  Not in use at this time; reserved for the future  **
 	--------------------------

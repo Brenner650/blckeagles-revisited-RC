@@ -1,5 +1,6 @@
 /*
-  by Ghostrider
+	By Ghostrider-GRG-
+	Copyright 2016
 
 	--------------------------
 	License

@@ -2,7 +2,6 @@
 	for ghostridergaming
 	By Ghostrider [GRG]
 	Copyright 2016
-	Last modified 4/29/17
 	checks the status of each entry in 
 /*
 	By Ghostrider [GRG]

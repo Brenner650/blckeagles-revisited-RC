@@ -2,7 +2,6 @@
 	calculate a reward player for AI Kills in crypto.
 	Code fragment adapted from VEMF
 	call as [_unit,_killer] call blck_fnc_handlePlayerUpdates;
-	Last modified 6/3/17
 	--------------------------
 	License
 	--------------------------

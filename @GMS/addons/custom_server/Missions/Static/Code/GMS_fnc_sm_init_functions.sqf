@@ -31,7 +31,7 @@ blck_fnc_sm_AddAircraft = compileFinal  preprocessFileLineNumbers "\q\addons\cus
 blck_fnc_sm_AddEmplaced = compileFinal  preprocessFileLineNumbers "\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_AddEmplaced.sqf";
 */
 private _functions = [
-	["blck_fnc_sm_monitorStaticUnits","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_monitorStaticPatrols.sqf"],
+	//["blck_fnc_sm_monitorStaticUnits","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_monitorStaticPatrols.sqf"],
 	["blck_fnc_sm_monitorInfantry","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_monitorInfantry.sqf"],
 	["blck_fnc_sm_monitorScuba","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_monitorScuba.sqf"],
 	["blck_fnc_sm_monitorVehicles","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_monitorVehicles.sqf"],
@@ -45,7 +45,7 @@ private _functions = [
 	["blck_fnc_sm_spawnAirPatrol","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnAirPatrol.sqf"],
 	["blck_fnc_sm_spawnEmplaced","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnEmplaced.sqf"],
 //	["blck_fnc_sm_spawnInfantryPatrol","\q\addons\custom_server\Missions\Static\Code\GMS_sm_spawnInfantryPatrol.sqf"],
-	["blck_fnc_sm_missionPatrolMonitor","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_monitorStaticPatrols.sqf"],
+	["blck_fnc_sm_staticPatrolMonitor","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_staticPatrolMonitor.sqf"],
 //	["blck_fnc_sm_checkForPlayerNearMission","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_checkForPlayerNearMission.sqf"],
 	["blck_fnc_sm_spawnAirPatrols","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnAirPatrols.sqf"],
 	["blck_fnc_sm_spawnEmplaceds","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnEmplaced.sqf"],
@@ -55,7 +55,13 @@ private _functions = [
 	["blck_fnc_sm_spawnVehiclePatrols","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnVehiclePatrols.sqf"],
 	["blck_fnc_sm_spawnBuildingGarrison_ASL","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnBuildingGarrisonASL.sqf"],
 	["blck_fnc_sm_spawnBuildingGarrison_relPos","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnBuildingGarrison_relPos.sqf"],
-	["blck_fnc_sm_spawnObjectASLVectorDirUp","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnObjectASLVectorDirUp.sqf"]
+	["blck_fnc_sm_spawnObjectASLVectorDirUp","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_spawnObjectASLVectorDirUp.sqf"],
+	["blck_fnc_spawnScubaGroup","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_spawnScubaGroup.sqf"],
+	["blck_fnc_spawnSDVPatrol","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_spawnSDVPatrol.sqf"],
+	["blck_fnc_spawnSurfacePatrol","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_spawnSurfacePatrol.sqf"],
+	//["blck_fnc_sm_AddScubaGroup","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_AddScubaGroup.sqf"],
+	//["blck_fnc_sm_AddSurfaceVehicle","\q\addons\custom_server\Missions\Static\Code\GMS_fnc_sm_AddSurfaceVehicle.sqf"],
+	["blck_fnc_sm_AddSDVVehicle","\q\addons\custom_server\Missions\Static\Code\GMS_sm_AddSDVVehicle.sqf"]
 ];
 {
 	_x params ["_name","_path"];
@@ -63,3 +69,12 @@ private _functions = [
 } foreach _functions;
 
 diag_log "[blckeagls] GMS_sm_init_functions.sqf <Variables Defined and Functions Loaded>";
+
+
+/*
+blck_fnc_spawnScubaGroup = compileFinal preprocessFileLineNumbers "q\addons\custom_server\Missions\UMS\code\GMS_fnc_spawnScubaGroup.sqf";
+blck_fnc_spawnSDVPatrol = compileFinal preprocessFileLineNumbers "q\addons\custom_server\Missions\UMS\code\GMS_fnc_spawnSDVPatrol.sqf";
+blck_fnc_spawnSurfacePatrol = compileFinal preprocessFileLineNumbers "q\addons\custom_server\Missions\UMS\code\GMS_fnc_spawnSurfacePatrol.sqf";
+blck_fnc_sm_AddScubaGroup = compileFinal  preprocessFileLineNumbers  "\q\addons\custom_server\Missions\UMS\code\GMS_sm_AddScubaGroup.sqf";
+blck_fnc_sm_AddSurfaceVehicle = compileFinal  preprocessFileLineNumbers  "\q\addons\custom_server\Missions\UMS\code\GMS_sm_AddSurfaceVehicle.sqf";
+blck_fnc_sm_AddSDVVehicle = compileFinal  preprocessFileLineNumbers  "\q\addons\custom_server\Missions\UMS\code\GMS_sm_AddSDVVehicle.sqf";

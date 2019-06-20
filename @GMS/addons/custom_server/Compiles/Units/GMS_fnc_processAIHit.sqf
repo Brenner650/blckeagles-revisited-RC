@@ -1,6 +1,5 @@
 /*
 	By Ghostrider [GRG]
-	Last Modified 7-27-17
 
 	Handles the case where a unit is hit.
 
@@ -12,7 +11,7 @@
 	http://creativecommons.org/licenses/by-nc-sa/4.0/
 */
 #include "\q\addons\custom_server\Configs\blck_defines.hpp";
-
+if !(isServer) exitWith {};
 private ["_unit","_instigator","_group","_wp"];
 _unit = _this select 0 select 0;
 _instigator = _this select 0 select 3;

@@ -1,7 +1,6 @@
 /*
 
 	[_missionEmplacedWeapons,_noEmplacedWeapons,_aiDifficultyLevel,_coords,_uniforms,_headGear] call blck_fnc_spawnEmplacedWeaponArray;
-	Last modified 4/27/17
 	By Ghostrider [GRG]
 	
 	--------------------------
@@ -99,7 +98,8 @@ if (blck_debugLevel > 1) then
 	// params["_vehType","_pos",["_clearInventory",true]];
 	private _wep = [(_x select 0),[0,0,0],false,true] call blck_fnc_spawnVehicle;
 	_wep addMPEventHandler ["MPHit",{[_this] call blck_EH_AIVehicle_HandleDamage}];
-	_wep setVariable["vehicleGroup",_empGroup];
+	_wep addEventHandler["GetOut",{_this remoteExec["blck_EH_vehicleGetOut",2]}];
+	//_wep setVariable["vehicleGroup",_empGroup];
 	_wep setVariable["GRG_vehType","emplaced"];	
 	_wep setPos _pos;
 	_wep setdir (random 359);
@@ -110,6 +110,7 @@ if (blck_debugLevel > 1) then
 	_gunner moveingunner _wep;
 	_gunner setVariable["GRG_vehType","emplaced"];
 	_gunner setVariable["GRG_vehicle",_wep];
+	//_gunner addEventHandler["GetOutMan",{_this remoteExec["blck_EH_vehcleManGetOut",2]}]; 	
 	_emplacedAI append _units;		
 } forEach _missionEmplacedWeapons;
 blck_monitoredVehicles append _emplacedWeps;

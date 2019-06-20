@@ -2,7 +2,6 @@
  Spawn objects from an array using offsects from a central location.
  The code provided by M3Editor EDEN has been addapted to add checks for vehicles, should they be present.
  Returns an array of spawned objects. 
- version of 10/13/17
 	
 	--------------------------
 	License

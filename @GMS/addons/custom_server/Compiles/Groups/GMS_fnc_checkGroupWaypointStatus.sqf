@@ -13,8 +13,8 @@
 	http://creativecommons.org/licenses/by-nc-sa/4.0/
 */
 
-params["_group","_maxTime","radius"];
-if ((diag_tickTime > (_group getVariable "timeStamp") + _maxTime) || ( (getPos (leader)) distance2d (_group getVariable "patrolCenter") > 200)) then
+params["_group","_maxTime","_radius"];
+if ((diag_tickTime > (_group getVariable "timeStamp") + _maxTime) || ( (getPos (leader)) distance2d (_group getVariable "patrolCenter") > _radius)) then
 {
 	(leader _group) call blck_fnc_changeToMoveWaypoint;
 	#ifdef blck_debugMode

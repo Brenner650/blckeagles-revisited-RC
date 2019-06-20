@@ -16,10 +16,10 @@ private ["_staticMissions"];
 _staticMissions = [
 	// [mod (Epoch, Exile), map (Altis, Tanoa etc), mission center, eg [10445,2014,0], filename.sqf (name of static mission template for that mission)];
 	//["Epoch","Altis","template.sqf"],
-	["Epoch","Altis","staticMissionExample2_Epoch.sqf"],
+	//["Epoch","Altis","staticMissionExample2_Epoch.sqf"],
 	//["Epoch","Altis","destroyer.sqf"],
 	//["Exile","Altis","template.sqf"],	
-	["Exile","Altis","staticMissionExample2_Exile.sqf"]
+	//["Exile","Altis","staticMissionExample2_Exile.sqf"]
 ];
 
 diag_log "[blckeagls] GMS_StaticMissions_Lists.sqf <Loaded>";

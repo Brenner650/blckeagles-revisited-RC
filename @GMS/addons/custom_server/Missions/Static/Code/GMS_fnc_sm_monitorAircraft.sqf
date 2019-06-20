@@ -10,18 +10,20 @@
 */
 
 #include "\q\addons\custom_server\Configs\blck_defines.hpp";
-private["_mode","_sm_groups"];
-_sm_groups = +blck_sm_Aircraft;
+//private["_mode","_sm_groups"];
+//_sm_groups = +blck_sm_Aircraft;
 //diag_log format["_fnc_monitorAircraft: time %2 |  blck_sm_Aircraft %1",blck_sm_Aircraft,diag_tickTime];
+for "_i" from 1 to (count blck_sm_Aircraft) do
 {
-	_x params["_groupParameters","_group","_groupSpawned","_timesSpawned","_respawnAt","_maxRespawns"];
-	//diag_log format["_fnc_monitorAircraft: _x %1",_x];
+	if (_i == (count blck_sm_Aircraft)) exitWith {};
+	private _element = blck_sm_Aircraft deleteAt 0;
+	_element params["_groupParameters","_group","_groupSpawned","_timesSpawned","_respawnAt","_maxRespawns"];
+	//diag_log format["_fnc_monitorAircraft: _x %1",_element];
 	//diag_log format["_fnc_monitorAircraft: _groupParameters = %1",_groupParameters];
 	//diag_log format["_fnc_monitorAircraft (9): _group %1 | _groupSpawned %2 | _timesSpawned %3 | _respawnAt %4",_group,_groupSpawned,_timesSpawned,_respawnAt];
 	_groupParameters params["_pos","_difficulty","_units","_patrolRadius","_respawnTime"];
 	_groupParameters params["_aircraftType","_pos","_difficulty","_patrolRadius","_respawnTime"];	
 	//diag_log format["_fnc_monitorAircraft:  _aircraftType | %1 | _pos = %2 | _difficulty = %3 | _patrolRadius = %4 | _respawnTime = %5",_aircraftType,_pos,_difficulty,_patrolRadius,_respawnTime];
-	private _element = +_x;//
 	
 	if (!(isNull _group) && {alive _x} count (units _group) == 0) then
 	{
@@ -41,29 +43,24 @@ _sm_groups = +blck_sm_Aircraft;
 		};
 		switch (_mode) do
 		{
-			case 0: {blck_sm_Aircraft deleteAt (blck_sm_Aircraft find _x)};
+			case 0: {};
 			case 1: {
 						
 						if ([_pos,staticPatrolTriggerRange] call blck_fnc_playerInRange) then
 						{						
 							_return = [_pos,_difficulty,[_aircraftType]] call blck_fnc_spawnMissionHeli; 
 							_group = group (driver (_return select 0));
-							_timesSpawned = _timesSpawned + 1;
-							_groupSpawned = 1;
-							_respawnAt = 0;
 							_element set[patrolGroup,_group];
 							_element set[groupSpawned,1];
-							_element set[timesSpawned,_timesSpawned];
-							_element set[respawnAt,_respawnAt];	
-							blck_sm_Aircraft set[blck_sm_Aircraft find _x,_element];
+							_element set[timesSpawned,_timesSpawned + 1];
+							_element set[respawnAt,0];	
 						};
+						blck_sm_Aircraft pushBack _element;
 					};
 			case 2: {
-						_groupSpawned = 0;
-						_respawnAt = diag_tickTime + _respawnTime;
-						_element set[respawnAt,_respawnAt];	
-						_element set[groupSpawned,_groupSpawned];
-						blck_sm_Aircraft set[blck_sm_Aircraft find _x,_element];
+						_element set[respawnAt,diag_tickTime + _respawnTime];	
+						_element set[groupSpawned,0];
+						blck_sm_Aircraft pushBack _element;
 						//diag_log format["_fnc_monitorAircraft: update respawn time to %1",_respawnAt];						
 					};
 			default {};
@@ -75,19 +72,22 @@ _sm_groups = +blck_sm_Aircraft;
 		{
 			_group setVariable["playerNearAt",diag_tickTime];
 			//diag_log format["_fnc_monitorAircraft: playerNearAt updated to %1",_group getVariable["playerNearAt",-1]];
+			blck_sm_Aircraft pushBack _element;			
 		} else {
 			if (diag_tickTime > (_group getVariable["playerNearAt",diag_tickTime]) + blck_sm_groupDespawnTime) then
 			{
 				//diag_log format["_fnc_monitorAircraft: despanwing patrol for _element %1",_element];
-				_groupParameters set [2, {alive _x} count (units _group)];
+				//_groupParameters set [2, {alive _x} count (units _group)];
 				private _veh = vehicle (leader _group);
+				{deleteVehicle _x} forEach (units _group);
+				deleteGroup _group;				
 				[_veh] call blck_fnc_destroyVehicleAndCrew;
 				_element set[groupParameters,_groupParameters];
 				_element set[patrolGroup ,grpNull];
 				_element set[timesSpawned,(_timesSpawned - 1)];
 				_element set[groupSpawned,0];
-				blck_sm_Aircraft set[(blck_sm_Aircraft find _x), _element];
 			};
+			blck_sm_Aircraft pushBack _element;			
 		};
 	};
-}forEach _sm_groups;
+};

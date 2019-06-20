@@ -1,7 +1,7 @@
 /*
   Set skills for an AI Unit
   by Ghostrider
-  Last updated 8/14/17   
+
 	--------------------------
 	License
 	--------------------------

@@ -1,4 +1,5 @@
 // GMS_fnc_handleEmptyStaticWeapon.sqf
+// NOT USED AT PRESENT
 /*
 	By Ghostrider [GRG]
 

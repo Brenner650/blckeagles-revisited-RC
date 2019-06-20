@@ -1,5 +1,5 @@
 /*
-	Killed handler for _units
+
 	By Ghostrider-GRG-
 
 	--------------------------
@@ -12,5 +12,5 @@
 
 	private["_vd"];
 	params["_vk"];
-	_vd = getDammage _vk;
+	_vd = damage _vk;
 	_vk setDamage (_vd + blck_RunGearDamage);

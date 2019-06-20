@@ -3,7 +3,6 @@
 	for ghostridergaming
 	By Ghostrider [GRG]
 	Copyright 2016
-	Last modified 3/14/17
 	
 	--------------------------
 	License

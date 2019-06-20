@@ -1,6 +1,8 @@
 
 // Last modified 8/13/17 by Ghostrider [GRG]
 /*
+	By Ghostrider [GRG]
+	Copyright 2016	
 	--------------------------
 	License
 	--------------------------

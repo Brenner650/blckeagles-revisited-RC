@@ -148,9 +148,9 @@ if (blck_debugON || (blck_debugLevel > 0)) then // These variables are found in 
 
 	blck_maxSpawnedMissions = 15;
 	blck_mainThreadUpdateInterval = 10;
-	blck_enableOrangeMissions = -1;  
-	blck_enableGreenMissions = -1;
-	blck_enableRedMissions = -1;
+	blck_enableOrangeMissions = 1;  
+	blck_enableGreenMissions = 1;
+	blck_enableRedMissions = 1;
 	blck_enableBlueMissions = 1;
 	blck_numberUnderwaterDynamicMissions = 1;	
 	blck_enableHunterMissions = -1;

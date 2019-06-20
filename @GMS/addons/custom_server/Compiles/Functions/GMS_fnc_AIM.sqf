@@ -1,6 +1,7 @@
 //This script sends Message Information to allplayers
-// Last modified 1/4/17 by Ghostrider [GRG]
 /*
+	By Ghostrider [GRG]
+	Copyright 2016	
 	--------------------------
 	License
 	--------------------------

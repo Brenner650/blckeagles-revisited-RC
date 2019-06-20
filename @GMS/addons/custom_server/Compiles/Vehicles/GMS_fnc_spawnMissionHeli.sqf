@@ -83,13 +83,13 @@ if !(isNull _grpPilot)  then
 	_patrolHeli setVariable["blck_vehicle",true];
 	_patrolHeli setVariable["blck_vehicleSearchRadius",blck_playerDetectionRangeAir];
 	_patrolHeli setVariable["blck_vehiclePlayerDetectionOdds",blck_vehiclePlayerDetectionOdds];
+	_patrolHeli addEventHandler["GetOut",{_this remoteExec["blck_EH_vehicleGetOut",2]}];
 	[_patrolHeli] call blck_fnc_protectVehicle;
 	_patrolHeli setFuel 1;
 	_patrolHeli engineOn true;
 	_patrolHeli flyInHeight 100;
 	_patrolHeli setVehicleLock "LOCKED";
-	//_patrolHeli addEventHandler ["GetOut",{(_this select 0) setFuel 0;(_this select 0) setDamage 1;}];
-
+	
 	#ifdef blck_debugMode
 	if (blck_debugLevel > 1) then
 	{
@@ -103,6 +103,8 @@ if !(isNull _grpPilot)  then
 	//params["_pos","_aiGroup",["_skillLevel","red"],["_uniforms", []],["_headGear",[]],["_vests",[]],["_backpacks",[]],["_Launcher","none"],["_weaponList",[]],["_sideArms",[]],["_scuba",false]];
 	_unitPilot = [[100,100,100],_grpPilot,_skillAI,_uniforms,_headGear,_vests,_backpacks,_Launcher,_weaponList,_sideArms] call blck_fnc_spawnUnit;
 	_unitPilot setSkill 1;
+	_unitPilot setVariable["GRG_vehicle",_patrolHeli];
+	//_unitPilot addEventHandler["GetOutman",{_this remoteExec["blck_EH_vehcleManGetOut",2]}]; 
 	_unitPilot assignAsDriver _patrolHeli;
 	_unitPilot moveInDriver _patrolHeli;
 	_grpPilot selectLeader _unitPilot;
@@ -145,7 +147,8 @@ if !(isNull _grpPilot)  then
 			_unitCrew = [(getPosATL _patrolHeli),_grpPilot,_skillAI,_uniforms,_headGear,_vests,_backpacks,_Launcher,_weaponList,_sideArms] call blck_fnc_spawnUnit;
 			_unitCrew assignAsTurret [_patrolHeli, _x];
 			_unitCrew moveInTurret [_patrolHeli, _x];
-
+			_unitCrew setVariable["GRG_vehicle",_patrolHeli];
+			//_unitCrew addEventHandler["GetOutman",{_this remoteExec["blck_EH_vehcleManGetOut",2]}]; 	
 			#ifdef blck_debugMode
 			diag_log format["_fnc_spawnMissionHeli (12798)::-- >> unit %1 moved into turret %2 of vehicle %3",_unitCrew,_x,_patrolHeli];
 			#endif

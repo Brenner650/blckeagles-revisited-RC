@@ -1,9 +1,6 @@
-//////////////////////////////////////////////////////
-// Attach a marker of type _marker to an object _crate
-// by Ghostrider [GRG] based on code from Wicked AI for Arma 2 Dayz Epoch 
-// Last modified 8/2/15
-/////////////////////////////////////////////////////
 /*
+	By Ghostrider-GRG-
+	Copyright 2016
 	--------------------------
 	License
 	--------------------------

@@ -1,7 +1,7 @@
 /*
   Delete a unit.
   by Ghostrider
-  Last updated 1/22/17   
+
 	--------------------------
 	License
 	--------------------------

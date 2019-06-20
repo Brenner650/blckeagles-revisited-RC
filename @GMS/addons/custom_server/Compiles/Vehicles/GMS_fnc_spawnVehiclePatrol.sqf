@@ -26,29 +26,34 @@ params["_center","_pos",["_vehType","I_G_Offroad_01_armed_F"],["_minDis",40],["_
 private["_veh"];
 if !(isNull _group) then {
 	_veh = [_vehType,_pos] call blck_fnc_spawnVehicle;
-	_veh addMPEventHandler["MPHit",{ [_this] call blck_EH_AIVehicle_HandleHit}];
+	diag_log format["_fnc_spawnVehiclePatrol: _veh = %1 | typeOf _ve = %2",_veh,typeOf _veh];
+	_veh addMPEventHandler["MPHit",{ _this call blck_EH_AIVehicle_HandleHit}];
+	_veh addMPEventHandler["MPKilled",{_this call blck_EH_vehicleKilled}];
+	_veh addEventHandler["GetOut",{_this remoteExec["blck_EH_vehicleGetOut",2]}];
 	_veh setVariable["blck_vehicleSearchRadius",blck_playerDetectionRangeGroundVehicle];
 	_veh setVariable["blck_vehiclePlayerDetectionOdds",blck_vehiclePlayerDetectionOdds];
 	private _maxCrew = [_crewCount] call blck_fnc_getNumberFromRange;
 	//_group setVariable["groupVehicle",_veh];
 	private _seats = [_vehType,true] call BIS_fnc_crewCount; 
-	_unitNumber = 0;
+	//_unitNumber = 0;
 	//diag_log format["_fnc_spawnVehiclePatrol: _veh = %1 | _maxCrew = %2 | _seats = %3",_veh,_maxCrew,_seats];
 	
 	{
+			//_x addEventHandler["GetOutMan",{_this remoteExec["blck_EH_vehcleManGetOut",2]}]; 
+			_x setVariable["GRG_vehicle",_veh];
+			//diag_log format["_fnc_spawnVehiclePatrol: _x getVariable 'GRG_vehicle' = %1 | typeOf (_x getVariable 'GRG_vehicle' = %1)  = %2",_x getVariable 'GRG_vehicle',typeOf (_x getVariable 'GRG_vehicle')];
 			switch (_forEachIndex) do
 			{
 				case 0: {_x moveingunner _veh;};
 				case 1: {_x moveindriver _veh;};
-				case {_forEachIndex == _seats - 1}: {
-					diag_log format["_fnc_spawnVeiclePatrol: deleteing excess crew: _veh = %1 | _forEachIndex = %2 | _seats = %3",_veh,_forEachIndex,_seats];
+				case {_forEachIndex >= _seats - 1}: {
+					//diag_log format["_fnc_spawnVeiclePatrol: deleteing excess crew: _veh = %1 | _forEachIndex = %2 | _seats = %3",_veh,_forEachIndex,_seats];
 					deleteVehicle _x;
 					};  // delete any excess AI
 				default {_x moveInCargo _veh;};
 			};
-			
+			// _this remoteExec ["blck_fnc_processAIKill",2];
 	}forEach (units _group);  //  
-
 
 	_group setcombatmode "RED";
 	_group setBehaviour "COMBAT";

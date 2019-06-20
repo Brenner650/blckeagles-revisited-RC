@@ -21,8 +21,8 @@
 ///////////////////////////
 
 //#define blck_debugMode
-#define GRGserver
-#define blck_addCarParts
+//#define GRGserver
+//#define blck_addCarParts
 #define blck_triggerLoopCompleteTime 40*60
 #define onFoot 1
 #define inVehicle 2

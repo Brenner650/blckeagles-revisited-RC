@@ -123,8 +123,12 @@ private _functions = [
 	["GMS_fnc_unlockServerVehicle","\q\addons\custom_server\Compiles\Vehicles\GMS_fnc_unlockServerVehicle.sqf"],
 	["GMS_fnc_applyVehicleDamagePenalty","\q\addons\custom_server\Compiles\Vehicles\GMS_fnc_applyVehicleDamagePenalty.sqf"],		
 	["GMS_fnc_revealVehicleToUnits","\q\addons\custom_server\Compiles\Vehicles\GMS_fnc_revealVehicleToUnits.sqf"],	
-	["GMS_fnc_handleEmptyStaticWeapon","\q\addons\custom_server\Compiles\Vehicles\GMS_fnc_handleEmptyStaticWeapon.sqf"],	
-	//  GMS_fnc_handleEmptyStaticWeapon
+	//["GMS_fnc_handleEmptyStaticWeapon","\q\addons\custom_server\Compiles\Vehicles\GMS_fnc_handleEmptyStaticWeapon.sqf"],
+	["blck_EH_vehicleGetOut","\q\addons\custom_server\Compiles\Vehicles\GMS_EH_vehicleGetOut.sqf"],
+	["blck_fnc_handleVehicleGetOut","\q\addons\custom_server\Compiles\Vehicles\GMS_fnc_handleVehicleGetOut.sqf"],	
+	["blck_fnc_checkForEmptyVehicle","\q\addons\custom_server\Compiles\Vehicles\GMS_fnc_checkForEmptyVehicle.sqf"],		
+	["blck_fnc_handleEmptyVehicle","\q\addons\custom_server\Compiles\Vehicles\GMS_fnc_handleEmptyVehicle.sqf"],		
+
 
 	// functions to support Units
 	["blck_fnc_removeGear","\q\addons\custom_server\Compiles\Units\GMS_fnc_removeGear.sqf"],			// Strip an AI unit of all gear.

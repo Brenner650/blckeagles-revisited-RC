@@ -446,7 +446,7 @@ if (blck_cleanUpLootChests) then
 };
 if (_noPara > 0 && (random(1) < _chancePara) && _paraTriggerDistance == 0) then
 {
-	diag_log format["_fnc_missionSpawner (435):  spawning %1 paraunits at mission spawn",_noPara];
+	//diag_log format["_fnc_missionSpawner (435):  spawning %1 paraunits at mission spawn",_noPara];
 	//private _paratroops = [_coords,_noPara,_aiDifficultyLevel,_uniforms,_headGear,_vests,_backpacks,_weaponList,_sideArms] call blck_fnc_spawnParaUnits;
 	// blck_UMS_uniforms,blck_UMS_headgear,blck_UMS_vests,[],blck_UMS_weapons,[],isScubaMission
 	private _paratroops = [_coords,_noPara,_aiDifficultyLevel,blck_UMS_uniforms,blck_UMS_headgear,blck_UMS_vests,[],blck_UMS_weapons,[],isScubaMission] call blck_fnc_spawnParaUnits;

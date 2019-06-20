@@ -1,9 +1,8 @@
 /*
 	Determines the total number of spawned groups on the side used by the mission system and returns this value.
+
 	By Ghostrider [GRG]
-	Last updated 12/21/16
-/*
-	By Ghostrider [GRG]
+	Copyright 2016	
 	--------------------------
 	License
 	--------------------------

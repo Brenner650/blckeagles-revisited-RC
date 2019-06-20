@@ -1,7 +1,7 @@
 
 
 /*
-	Killed handler for _units
+	Reloaded eventhandler for _units
 	By Ghostrider-GRG-
 
 	--------------------------

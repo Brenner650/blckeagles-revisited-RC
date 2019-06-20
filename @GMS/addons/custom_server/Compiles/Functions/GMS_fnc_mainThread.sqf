@@ -1,6 +1,6 @@
 /*
 	By Ghostrider [GRG]
-
+	Copyright 2016	
 	--------------------------
 	License
 	--------------------------
@@ -34,7 +34,7 @@ while {true} do
 		_timer5sec = diag_tickTime + 5;
 		//[] call blck_fnc_missionGroupMonitor;
 		if (blck_simulationManager == blck_useBlckeaglsSimulationManagement) then {call blck_fnc_blckSimulationManager};
-		[] call blck_fnc_sm_missionPatrolMonitor;
+		[] call blck_fnc_sm_staticPatrolMonitor;
 		[] call blck_fnc_vehicleMonitor;		
 	};
 	if (diag_tickTime > _timer20sec) then
@@ -45,7 +45,7 @@ while {true} do
 		[] call blck_fnc_scanForPlayersNearVehicles;
 		[] call GMS_fnc_cleanupTemporaryMarkers;
 		[] call GMS_fnc_updateCrateSignals;				
-		//[] call blck_fnc_cleanEmptyGroups;
+		[] call blck_fnc_cleanEmptyGroups;
 		_timer20sec = diag_tickTime + 20;
 	};
 	if ((diag_tickTime > _timer1min)) then
@@ -53,7 +53,7 @@ while {true} do
 		_timer1min = diag_tickTime + 60;
 		[] call blck_fnc_spawnPendingMissions;
 		[] call blck_fnc_cleanEmptyGroups;
-		[] call bck_fnc_groupWaypointMonitor;
+		//[] call blck_fnc_groupWaypointMonitor;
 		if (blck_dynamicUMS_MissionsRuning < blck_numberUnderwaterDynamicMissions) then {[] spawn blck_fnc_addDyanamicUMS_Mission};
 		if (blck_useHC) then {[] call blck_fnc_HC_passToHCs};
 		if (blck_useTimeAcceleration) then {[] call blck_fnc_timeAcceleration};

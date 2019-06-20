@@ -2,7 +2,8 @@
 	schedules deletion of all remaining alive AI and mission objects.
 	Updates the mission que.
 	Updates mission markers.
-	By Ghostrider GRG
+	By Ghostrider-GRG-
+	Copyright 2016
 	
 	--------------------------
 	License

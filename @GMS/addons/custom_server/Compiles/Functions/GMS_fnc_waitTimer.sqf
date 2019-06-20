@@ -2,7 +2,6 @@
 	for ghostridergaming
 	By Ghostrider [GRG]
 	Copyright 2016
-	Last Modified 8-13-16
 	
   Waits for a random period between _min and _max seconds
   Call as

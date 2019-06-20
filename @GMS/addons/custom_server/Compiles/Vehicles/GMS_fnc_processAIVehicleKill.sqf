@@ -27,8 +27,8 @@ diag_log format["_fnc_processAIVehicleKill:  _this = %1",_this];
 diag_log format["_fnc_processAIVehicleKill:: _units = %1 and _instigator = %2 units damage is %3",_veh,_instigator, damage _veh];
 
 if (!(isPlayer _instigator)) exitWith {};
-_crew = crew _veh;
-if !(count _crew == 0) then
+
+if !(count(crew _veh) isEqualTo 0) then
 {
 	[_crew select 0,_instigator] call blck_fnc_alertGroupUnits;	
 	_group setBehaviour "COMBAT";

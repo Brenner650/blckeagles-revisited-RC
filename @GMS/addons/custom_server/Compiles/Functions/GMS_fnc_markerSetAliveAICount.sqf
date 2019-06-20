@@ -1,7 +1,6 @@
 /*
-	Killed handler for _units
-	By Ghostrider-GRG-
-
+	By Ghostrider [GRG]
+	Copyright 2016	
 	--------------------------
 	License
 	--------------------------

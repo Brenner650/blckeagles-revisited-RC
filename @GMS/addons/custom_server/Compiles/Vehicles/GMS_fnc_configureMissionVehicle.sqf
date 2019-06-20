@@ -2,7 +2,6 @@
 /*
 	By Ghostrider [GRG]
 	Copyright 2016
-	Last updated 3-14-17
 	
 	spawns a vehicle of _vehType and mans it with units in _group.
 	returns _veh, the vehicle spawned.
@@ -21,7 +20,8 @@ if (_clearInventory) then
 {
 	[_veh] call blck_fnc_emptyObject;
 };
-_veh setVehicleLock "LOCKEDPLAYER";
+//_veh setVehicleLock "LOCKEDPLAYER";
+_veh lock 0;
 if (blck_modType isEqualTo "Epoch") then
 {
 	if (blck_allowSalesAtBlackMktTraders) then {_veh setVariable["HSHALFPRICE",1,true]};

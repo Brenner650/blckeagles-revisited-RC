@@ -2,7 +2,16 @@
 	Determine the map name, set the map center and size, and return the map name.
 	Trader coordinates were pulled from the config.cfg
 	Inspired by the Vampire and DZMS
-	Last Modified 9/3/16
+
+	By Ghostrider [GRG]
+	Copyright 2016	
+	--------------------------
+	License
+	--------------------------
+	All the code and information provided here is provided under an Attribution Non-Commercial ShareAlike 4.0 Commons License.
+
+	http://creativecommons.org/licenses/by-nc-sa/4.0/
+
 	--------------------------
 	License
 	--------------------------

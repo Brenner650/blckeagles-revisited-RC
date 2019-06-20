@@ -6,7 +6,6 @@
 	returns:
 	_lootarray
 	by Ghostrider [GRG]
-	1/9-17
 	
 	--------------------------
 	License
